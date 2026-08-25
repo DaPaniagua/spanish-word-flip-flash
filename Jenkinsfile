@@ -60,7 +60,7 @@ pipeline {
             }
         }
 
-        /*stage('e2e') {
+        stage('e2e') {
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.54.2-jammy'
@@ -71,8 +71,9 @@ pipeline {
                 E2E_BASE_URL = 'https://spanish-cards.netlify.app'
             }
             steps {
+                sh 'npm ci'
                 sh 'npx playwright test'
             }
-        }*/
+        }
     }
 }
